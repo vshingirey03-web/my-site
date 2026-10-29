@@ -2,11 +2,11 @@ const input = document.getElementById("taskInput");
 const addBtn = document.getElementById("addBtn");
 const list = document.getElementById("taskList");
 
-addBtn.addEventListener("click", function () {
+function addTask() {
   const text = input.value;
 
   if (text === "") {
-    return;                      // пустую задачу не добавляем
+    return;
   }
 
   const li = document.createElement("li");
@@ -16,6 +16,22 @@ addBtn.addEventListener("click", function () {
     li.classList.toggle("done");
   });
 
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "✕";
+  deleteBtn.addEventListener("click", function (event) {
+    event.stopPropagation();
+    li.remove();
+  });
+  li.appendChild(deleteBtn);
+
   list.appendChild(li);
-  input.value = "";              // очищаем поле
+  input.value = "";
+}
+
+addBtn.addEventListener("click", addTask);
+
+input.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    addTask();
+  }
 });
