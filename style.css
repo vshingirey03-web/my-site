@@ -22,3 +22,21 @@ li {
 ul {
   line-height: 1.8;
 }
+.cards {
+  display: flex;
+  gap: 16px;
+}
+
+.card {
+  flex: 1;
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .cards {
+    flex-direction: column;
+  }
+}
