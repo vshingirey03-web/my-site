@@ -40,3 +40,7 @@ ul {
     flex-direction: column;
   }
 }
+.card:nth-child(2) {
+  background-color: #fde68a;
+}
+ 
